@@ -1,7 +1,9 @@
 import React from 'react';
 import { Container, Typography, Button, Grid } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-
+import "react-notifications-component/dist/theme.css";
+import { store } from "react-notifications-component";
+import "animate.css";
 import CartItem from './CartItem/CartItem';
 import useStyles from './styles';
 
@@ -12,7 +14,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
 
   const renderEmptyCart = () => (
     <Typography variant="subtitle1">You have no items in your shopping cart,
-      <Link className={classes.link} to="/">start adding some</Link>!
+      <Link className={classes.link} to="/product">start adding some</Link>!
     </Typography>
   );
 
@@ -37,11 +39,39 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     </>
   );
 
+
+  const NotifyLimit = () => {
+    console.log("store ==== ", store)
+    if(store.add){
+      store.addNotification({
+        title: "Limit Alert",
+        message: "Syed Hassan Added a Card",
+        type: "warning",
+        container: "top-right",
+        insert: "top",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        // animationOut: ["animate__animated", "animate__fadeOut"],
+  
+        dismiss: {
+          duration: 5000,
+        },
+      });
+    }
+  };
+
+  if (cart.subtotal.raw > 100) {
+    NotifyLimit();
+  }
+
+
+
+
+
   return (
     <Container>
       <div className={classes.toolbar} />
       <Typography className={classes.title} variant="h3" gutterBottom>Your Shopping Cart</Typography>
-      { !cart.line_items.length ? renderEmptyCart() : renderCart() }
+      {!cart.line_items.length ? renderEmptyCart() : renderCart()}
     </Container>
   );
 };

@@ -50,7 +50,7 @@ const Products = ({ products, onAddToCart }) => {
       </div>
       <div class="footer">
         <div>
-          <h4>Copyright <i className="fa fa-copyright" aria-hidden="true"></i> 2021 iVolve Technologies Pvt. Ltd.
+          <h4 style={{color: "white"}}>Copyright <i className="fa fa-copyright" aria-hidden="true"></i> 2021 iVolve Technologies Pvt. Ltd.
           </h4>
         </div>
       </div>

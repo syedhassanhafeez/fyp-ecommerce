@@ -6,6 +6,10 @@ import { Navbar, Products, Cart, Checkout } from './components';
 import SignUp from './SignUp'
 import { commerce } from './lib/commerce';
 import SignIn from './SignIn';
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
+import "animate.css";
+
 
 const App = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -78,20 +82,21 @@ const App = () => {
       <div style={{ display: 'flex' }}>
         <CssBaseline />
         <Navbar totalItems={cart.total_items} handleDrawerToggle={handleDrawerToggle} />
-          <Switch>
-          <Route exact path="/" component={SignUp}>
-            <SignUp /> 
-            </Route>
-            <Route exact path="/signin" component={SignIn}>
-            <SignIn /> 
+        <Switch>
+          <Route exact path="/signup" component={SignUp}>
+            <SignUp />
+          </Route>
+          <Route exact path="/" component={SignIn}>
+            <SignIn />
           </Route>
           <Route exact path="/product">
             <Products products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />
           </Route>
           <Route exact path="/cart">
+            <ReactNotification />
             <Cart cart={cart} onUpdateCartQty={handleUpdateCartQty} onRemoveFromCart={handleRemoveFromCart} onEmptyCart={handleEmptyCart} />
           </Route>
-          <Route path="/checkout" exact>
+          <Route exact path="/checkout">
             <Checkout cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />
           </Route>
         </Switch>
