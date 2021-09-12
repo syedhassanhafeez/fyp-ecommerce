@@ -12,6 +12,7 @@ import "animate.css";
 
 
 const App = () => {
+  console.log("process.env.REACT_APP_STRIPE_PUBLIC_KEY ==== ", process.env.REACT_APP_STRIPE_PUBLIC_KEY)
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
