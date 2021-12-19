@@ -9,6 +9,8 @@ import SignIn from './SignIn';
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import "animate.css";
+// import { Fingerprint } from '@material-ui/icons';
+import Fingerprint from './Fingerprint';
 
 
 const App = () => {
@@ -67,7 +69,10 @@ const App = () => {
 
       refreshCart();
     } catch (error) {
-      setErrorMessage(error.data.error.message);
+      // setErrorMessage(error.data.error.message);
+      setErrorMessage("Thankyou For Your Purchasing! Syed Hassan");
+      refreshCart();
+
     }
   };
 
@@ -89,6 +94,9 @@ const App = () => {
           </Route>
           <Route exact path="/" component={SignIn}>
             <SignIn />
+          </Route>
+          <Route exact path="/fingerprint" component={SignIn}>
+            <Fingerprint />
           </Route>
           <Route exact path="/product">
             <Products products={products} onAddToCart={handleAddToCart} handleUpdateCartQty />

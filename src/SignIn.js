@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link, useHistory } from 'react-router-dom';
-
+import Fingerprint from './Fingerprint';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -53,7 +53,7 @@ export default function SignIn() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    history.push("/product")
+    history.push("/fingerprint")
   }
 
   return (

@@ -29,7 +29,7 @@ const Product = ({ product, onAddToCart }) => {
           <button className="btn btn-primary" style={{
             width: "250px",
             height: "40px",
-            marginRight: "5px",
+            marginRight: "20px",
             fontSize: "18px",
             // fontWeight: "bold",
             color: "white",

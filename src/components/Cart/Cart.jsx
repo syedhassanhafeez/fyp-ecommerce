@@ -45,7 +45,7 @@ const Cart = ({ cart, onUpdateCartQty, onRemoveFromCart, onEmptyCart }) => {
     if(store.add){
       store.addNotification({
         title: "Limit Alert",
-        message: "Syed Hassan Added a Quantity of Card",
+        message: "Added a Quantity of Card",
         type: "warning",
         container: "top-right",
         insert: "top",
